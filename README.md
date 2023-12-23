@@ -21,7 +21,7 @@ Run the following commands:
 
 1. `kubectx rancher-desktop`
 2. Install Argo CD. Use [Getting Started](https://argo-cd.readthedocs.io/en/stable/getting_started/).
-3. Deploy Crossplane using Argo CD: `kubectl create ns crossplane && argocd app create crossplane --repo https://github.com/crossplane/crossplane.git --path cluster/charts/crossplane --dest-server https://kubernetes.default.svc --dest-namespace crossplane`
+3. Deploy Crossplane using Argo CD [here](#crossplane)
 
 ## Rancher Desktop Troubleshooting
 
@@ -31,6 +31,15 @@ If you have issues with Rancher Desktop try the following:
 2. Relaunch Rancher Desktop from your desktop
 3. Ensure you are on the latest version - upgrade if necessary
 
+<a name="crossplane">## Install CrossPlane with Argo CD</a>
+
+Run the following code:
+
+```
+kubectl create ns crossplane
+argocd app create crossplane --repo https://github.com/crossplane/crossplane.git --path cluster/charts/crossplane --dest-server https://kubernetes.default.svc --dest-namespace crossplane
+argocd app sync crossplane
+```
 
 ## Decisions
 
