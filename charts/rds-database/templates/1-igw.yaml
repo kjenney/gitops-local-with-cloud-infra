@@ -2,11 +2,11 @@
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: InternetGateway
 metadata:
-  name: dev-igw
+  name: {{ .Values.environment }}-igw
 spec:
   forProvider:
     region: {{ .Values.aws_region }} 
     tags:
-      Name: dev-igw
+      Name: {{ .Values.environment }}-igw
     vpcIdRef:
-      name: dev-main
+      name: {{ .Values.environment }}-main

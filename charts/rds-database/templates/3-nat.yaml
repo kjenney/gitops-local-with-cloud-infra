@@ -2,26 +2,26 @@
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: EIP
 metadata:
-  name: dev-nat
+  name: {{ .Values.environment }}-nat
 spec:
   forProvider:
     region: {{ .Values.aws_region }} 
     vpc: true
     tags:
-      Name: dev-nat
+      Name: {{ .Values.environment }}-nat
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: NATGateway
 metadata:
-  name: dev-nat
+  name: {{ .Values.environment }}-nat
 spec:
   forProvider:
     region: {{ .Values.aws_region }} 
     connectivityType: public
     allocationIdRef:
-      name: dev-nat
+      name: {{ .Values.environment }}-nat
     subnetIdSelector:
       matchLabels:
-        name: dev-public-{{ .Values.aws_region }} a
+        name: {{ .Values.environment }}-public-{{ .Values.aws_region }} a
     tags:
-      Name: dev-nat
+      Name: {{ .Values.environment }}-nat

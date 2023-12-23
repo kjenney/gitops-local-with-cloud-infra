@@ -2,7 +2,7 @@
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: VPC
 metadata:
-  name: dev-main
+  name: {{ .Values.environment }}-main
 spec:
   forProvider:
     region: {{ .Values.aws_region }} 
@@ -10,4 +10,4 @@ spec:
     enableDnsHostnames: true
     enableDnsSupport: true
     tags:
-      Name: dev-main
+      Name: {{ .Values.environment }}-main
