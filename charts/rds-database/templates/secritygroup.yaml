@@ -1,4 +1,4 @@
-apiVersion: network.aws.crossplane.io/v1alpha3
+apiVersion: ec2.aws.upbound.io/v1beta1
 kind: SecurityGroup
 metadata:
   name: sample-rds-sg
