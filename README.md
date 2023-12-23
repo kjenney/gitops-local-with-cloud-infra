@@ -6,7 +6,7 @@ Local K8S that provisions infrastructure on a cloud provider
 * Rancher Desktop
 * AWS Cloud
 * Crossplane
-* ArgoCD
+* Argo CD
 * kubectx
 
 ## Requirements
@@ -20,8 +20,8 @@ Local K8S that provisions infrastructure on a cloud provider
 Run the following commands:
 
 1. `kubectx rancher-desktop`
-2. Install ArgoCD. Use [Getting Started](https://argo-cd.readthedocs.io/en/stable/getting_started/).
-3. Login to ArgoCD UI.
+2. Install Argo CD. Use [Getting Started](https://argo-cd.readthedocs.io/en/stable/getting_started/).
+3. Login to Argo CD UI.
 4. 
 
 
@@ -46,6 +46,10 @@ If you have issues with Rancher Desktop try the following:
       <ul>
         <li>It's CNCF and well-known</li>
         <li>I want to be able to bundle infra with services during deployment</li>
-      </ul>      
+      </ul>    
+      <li>Argo CD</li>
+      <ul>
+        <li>It's CNCF and well-known</li>
+      </ul>  
 </ol>
 
