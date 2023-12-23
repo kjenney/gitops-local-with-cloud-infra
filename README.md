@@ -37,7 +37,7 @@ Run the following code:
 
 ```
 kubectl create ns crossplane
-argocd app create crossplane --repo https://github.com/crossplane/crossplane.git --path cluster/charts/crossplane --dest-server https://kubernetes.default.svc --dest-namespace crossplane
+argocd app create crossplane --repo https://charts.crossplane.io/stable --helm-chart crossplane --revision 1.14.5 --dest-namespace crossplane --dest-server https://kubernetes.default.svc
 argocd app sync crossplane
 ```
 
