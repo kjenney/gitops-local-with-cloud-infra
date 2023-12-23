@@ -39,8 +39,6 @@ If you have issues with Rancher Desktop try the following:
       <ul>
         <li> Minikube wouldn't work with my version of Virtualbox and it was too difficult to downgrade on a Mac</li>
         <li>Useful because it bundles dependencies, such as kubectl </li>
-        <li>Java</li>
-        <li>Python</li>
       </ul>
 </ol>
 
