@@ -13,7 +13,7 @@ Local K8S that provisions infrastructure on a cloud provider
 
 * [Rancher Desktop](https://rancherdesktop.io/) already installed
 * [kubectx](https://github.com/ahmetb/kubectx) already installed
-* AWS credentials for Cloud Infra
+* AWS credentials for Cloud Infra saved in `/tmp/credentails`
 
 ## Quickstart
 
@@ -22,8 +22,8 @@ Run the following commands:
 1. `kubectx rancher-desktop`
 2. Install Argo CD. Use [Getting Started](https://argo-cd.readthedocs.io/en/stable/getting_started/).
 3. Deploy Crossplane using Argo CD [here](#Deploy-CrossPlane-using-Argo-CD).
-4. Deploy Crossplane's AWS Provider with Argo CD [here](#Deploy-Crossplane-AWS-Provider-using-Argo-CD).
-5. Deploy Kubernetes Secret with AWS Credentials. Use [AWS Quickstart[(https://docs.crossplane.io/latest/getting-started/provider-aws/#create-a-kubernetes-secret-for-aws).
+4. Deploy Kubernetes Secret with AWS Credentials [here](#Create-Kubernetes-Secret-for-AWS-Providers).
+5. Deploy Crossplane's AWS Providers with Argo CD [here](#Deploy-Crossplane-AWS-Providers-using-Argo-CD).
 6. Deploy RDS Database using Crossplane AWS Provider with Argo CD [here](#Deploy-RDS-Database).
 
 ## Deploy CrossPlane using Argo CD
@@ -36,7 +36,15 @@ argocd app create crossplane --repo https://charts.crossplane.io/stable --helm-c
 argocd app sync crossplane
 ```
 
-## Deploy CrossPlane AWS Provider using Argo CD
+## Create Kubernetes Secret for AWS Providers
+
+Use the AWS Quickstart[(https://docs.crossplane.io/latest/getting-started/provider-aws/#create-a-kubernetes-secret-for-aws). Update the namespace to use `crossplane` like so:
+
+```
+kubectl create secret generic aws-secret -n crossplane --from-file=creds=/tmp/credentials
+```
+
+## Deploy CrossPlane AWS Providers using Argo CD
 
 ```
 argocd app create crossplane-aws-provider --repo https://github.com/kjenney/gitops-local-with-cloud-infra --path charts/crossplane-aws  --dest-server https://kubernetes.default.svc
