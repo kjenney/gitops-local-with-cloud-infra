@@ -1,3 +1,3 @@
 # crossplane-aws
 
-Installs Crossplane AWS provider
+Installs Crossplane AWS providers

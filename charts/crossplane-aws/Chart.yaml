@@ -1,6 +1,6 @@
 apiVersion: v2
 name: crossplane-aws
-description: Crossplane AWS Providers and AWS credentials
+description: Crossplane AWS Providers
 
 # A chart can be either an 'application' or a 'library' chart.
 #
