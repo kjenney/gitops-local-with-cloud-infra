@@ -37,8 +37,13 @@ If you have issues with Rancher Desktop try the following:
 <ol>
       <li>Rancher Desktop</li>
       <ul>
-        <li> Minikube wouldn't work with my version of Virtualbox and it was too difficult to downgrade on a Mac</li>
+        <li>Minikube wouldn't work with my version of Virtualbox and it was too difficult to downgrade on a Mac</li>
         <li>Useful because it bundles dependencies, such as kubectl </li>
       </ul>
+      <li>Crossplane</li>
+      <ul>
+        <li>It's CNCF and well-known</li>
+        <li>I want to be able to bundle infra with services during deployment</li>
+      </ul>      
 </ol>
 
