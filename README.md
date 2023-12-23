@@ -59,6 +59,9 @@ If you have issues with Rancher Desktop try the following:
 2. Relaunch Rancher Desktop from your desktop
 3. Ensure you are on the latest version - upgrade if necessary
 
+## CrossPlane Troubleshooting
+
+To get the latest versions of Crossplane packages, go [here](https://marketplace.upbound.io/providers/upbound/provider-family-aws)
 
 ## Decisions
 
