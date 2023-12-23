@@ -23,14 +23,7 @@ Run the following commands:
 2. Install Argo CD. Use [Getting Started](https://argo-cd.readthedocs.io/en/stable/getting_started/).
 3. Deploy Crossplane using Argo CD [here](#Deploy-CrossPlane-using-Argo-CD)
 4. Deploy Crossplane's AWS Provider with Argo CD. Use [AWS Quickstart](https://docs.crossplane.io/latest/getting-started/provider-aws/)
-
-## Rancher Desktop Troubleshooting
-
-If you have issues with Rancher Desktop try the following:
-
-1. Run `rdctl factory-reset`
-2. Relaunch Rancher Desktop from your desktop
-3. Ensure you are on the latest version - upgrade if necessary
+5. Deploy RDS Database using Crossplane AWS Provider with Argo CD [here](#Deploy-RDS-Database)
 
 ## Deploy CrossPlane using Argo CD
 
@@ -41,6 +34,24 @@ kubectl create ns crossplane
 argocd app create crossplane --repo https://charts.crossplane.io/stable --helm-chart crossplane --revision 1.14.5 --dest-namespace crossplane --dest-server https://kubernetes.default.svc
 argocd app sync crossplane
 ```
+
+## Deploy RDS Database 
+
+Run the following code:
+
+```
+argocd app create rds-database --repo https://github.com/kjenney/gitops-local-with-cloud-infra rds-database --path rds-database --dest-server https://kubernetes.default.svc
+argocd app sync rds-database 
+```
+
+## Rancher Desktop Troubleshooting
+
+If you have issues with Rancher Desktop try the following:
+
+1. Run `rdctl factory-reset`
+2. Relaunch Rancher Desktop from your desktop
+3. Ensure you are on the latest version - upgrade if necessary
+
 
 ## Decisions
 
