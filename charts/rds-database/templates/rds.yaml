@@ -37,8 +37,8 @@ spec:
     instanceClass: db.t3.large
     dbSubnetGroupNameRef:
         name: example-subnetgroup
-    vpcSecurityGroupIdRefs:
-        name: sample-rds-sg
+    # vpcSecurityGroupIdRefs:
+    #     name: sample-rds-sg
     maintenanceWindow: Mon:00:00-Mon:03:00
     name: example
     passwordSecretRef:
