@@ -22,6 +22,7 @@ Run the following commands:
 1. `kubectx rancher-desktop`
 2. Install Argo CD. Use [Getting Started](https://argo-cd.readthedocs.io/en/stable/getting_started/).
 3. Deploy Crossplane using Argo CD [here](#Deploy-CrossPlane-using-Argo-CD)
+4. Deploy Crossplane's AWS Provider with Argo CD. Use [AWS Quickstart](https://docs.crossplane.io/latest/getting-started/provider-aws/)
 
 ## Rancher Desktop Troubleshooting
 
