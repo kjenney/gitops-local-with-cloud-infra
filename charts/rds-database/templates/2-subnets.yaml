@@ -1,0 +1,72 @@
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: dev-private-{{ .Values.aws_region }} 
+  labels:
+    name: dev-private-{{ .Values.aws_region }} 
+spec:
+  forProvider:
+    availabilityZone: {{ .Values.aws_region }} a
+    cidrBlock: 10.0.0.0/19
+    region: {{ .Values.aws_region }} 
+    tags:
+      Name: dev-private-{{ .Values.aws_region }} a
+      kubernetes.io/role/internal-elb: "1"
+      kubernetes.io/cluster/dev-demo: "owned"
+    vpcIdRef:
+      name: dev-main
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: dev-private-{{ .Values.aws_region }} b
+  labels:
+    name: dev-private-{{ .Values.aws_region }} b
+spec:
+  forProvider:
+    availabilityZone: {{ .Values.aws_region }} b
+    cidrBlock: 10.0.32.0/19
+    region: {{ .Values.aws_region }} 
+    tags:
+      Name: dev-private-{{ .Values.aws_region }} b
+      kubernetes.io/role/internal-elb: "1"
+      kubernetes.io/cluster/dev-demo: "owned"
+    vpcIdRef:
+      name: dev-main
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: dev-public-{{ .Values.aws_region }} a
+  labels:
+    name: dev-public-{{ .Values.aws_region }} a
+spec:
+  forProvider:
+    availabilityZone: {{ .Values.aws_region }} a
+    cidrBlock: 10.0.64.0/19
+    region: {{ .Values.aws_region }} 
+    tags:
+      Name: dev-public-{{ .Values.aws_region }} a
+      kubernetes.io/role/elb: "1"
+      kubernetes.io/cluster/dev-demo: "owned"
+    vpcIdRef:
+      name: dev-main
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: dev-public-{{ .Values.aws_region }} b
+  labels:
+    name: dev-public-{{ .Values.aws_region }} b
+spec:
+  forProvider:
+    availabilityZone: {{ .Values.aws_region }} b
+    cidrBlock: 10.0.96.0/19
+    region: {{ .Values.aws_region }} 
+    tags:
+      Name: dev-public-{{ .Values.aws_region }} b
+      kubernetes.io/role/elb: "1"
+      kubernetes.io/cluster/dev-demo: "owned"
+    vpcIdRef:
+      name: dev-main

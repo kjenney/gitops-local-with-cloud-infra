@@ -1,0 +1,98 @@
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTable
+metadata:
+  name: dev-private
+spec:
+  forProvider:
+    region: {{ .Values.aws_region }} 
+    tags:
+      Name: dev-private
+    vpcIdRef:
+      name: dev-main
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Route
+metadata:
+  name: dev-private
+spec:
+  forProvider:
+    destinationCidrBlock: 0.0.0.0/0
+    natGatewayIdRef:
+      name: dev-nat
+    region: {{ .Values.aws_region }} 
+    routeTableIdRef:
+      name: dev-private
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTable
+metadata:
+  name: dev-public
+spec:
+  forProvider:
+    region: {{ .Values.aws_region }} 
+    tags:
+      Name: dev-public
+    vpcIdRef:
+      name: dev-main
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Route
+metadata:
+  name: dev-public
+spec:
+  forProvider:
+    destinationCidrBlock: 0.0.0.0/0
+    gatewayIdRef:
+      name: dev-igw
+    region: {{ .Values.aws_region }} 
+    routeTableIdRef:
+      name: dev-public
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTableAssociation
+metadata:
+  name: dev-private-{{ .Values.aws_region }} a
+spec:
+  forProvider:
+    region: {{ .Values.aws_region }} 
+    routeTableIdRef:
+      name: dev-private
+    subnetIdRef:
+      name: dev-private-{{ .Values.aws_region }} a
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTableAssociation
+metadata:
+  name: dev-private-{{ .Values.aws_region }} b
+spec:
+  forProvider:
+    region: {{ .Values.aws_region }} 
+    routeTableIdRef:
+      name: dev-private
+    subnetIdRef:
+      name: dev-private-{{ .Values.aws_region }} b
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTableAssociation
+metadata:
+  name: dev-public-{{ .Values.aws_region }} a
+spec:
+  forProvider:
+    region: {{ .Values.aws_region }} 
+    routeTableIdRef:
+      name: dev-public
+    subnetIdRef:
+      name: dev-public-{{ .Values.aws_region }} a
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTableAssociation
+metadata:
+  name: dev-public-{{ .Values.aws_region }} b
+spec:
+  forProvider:
+    region: {{ .Values.aws_region }} 
+    routeTableIdRef:
+      name: dev-public
+    subnetIdRef:
+      name: dev-public-{{ .Values.aws_region }} b
