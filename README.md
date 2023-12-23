@@ -51,4 +51,8 @@ If you have issues with Rancher Desktop try the following:
       <ul>
         <li>It's CNCF and well-known</li>
       </ul>
+      <li>kubectx</li>
+      <ul>
+        <li>Becaus I don't feel like running more than one command if I don't have to</li>
+      </ul>
 </ol>
