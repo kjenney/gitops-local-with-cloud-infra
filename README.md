@@ -38,7 +38,8 @@ argocd app sync crossplane
 ## Deploy CrossPlane AWS Provider using Argo CD
 
 ```
-argocd app create crossplane-aws-provider --repo https://charts.crossplane.io/stable --helm-chart crossplane
+argocd app create crossplane-aws-provider --repo https://github.com/kjenney/gitops-local-with-cloud-infra --path charts/crossplane-aws  --dest-server https://kubernetes.default.svc
+argocd app sync rds-database 
 ```
 
 ## Deploy RDS Database 
@@ -46,7 +47,7 @@ argocd app create crossplane-aws-provider --repo https://charts.crossplane.io/st
 Run the following code:
 
 ```
-argocd app create rds-database --repo https://github.com/kjenney/gitops-local-with-cloud-infra rds-database --path rds-database --dest-server https://kubernetes.default.svc
+argocd app create rds-database --repo https://github.com/kjenney/gitops-local-with-cloud-infra --path rds-database --dest-server https://kubernetes.default.svc
 argocd app sync rds-database 
 ```
 
