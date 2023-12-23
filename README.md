@@ -34,5 +34,7 @@ If you have issues with Rancher Desktop try the following:
 
 ## Decisions
 
-1. Rancher Desktop - because Minikube wouldn't work with my version of Virtualbox and it was too difficult to downgrade on a Mac
+1. Rancher Desktop
+   a. Minikube wouldn't work with my version of Virtualbox and it was too difficult to downgrade on a Mac
+   b. Useful because it bundles dependencies, such as kubectl 
 
