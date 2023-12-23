@@ -35,6 +35,12 @@ argocd app create crossplane --repo https://charts.crossplane.io/stable --helm-c
 argocd app sync crossplane
 ```
 
+## Deploy CrossPlane AWS Provider using Argo CD
+
+```
+argocd app create crossplane-aws-provider --repo https://charts.crossplane.io/stable --helm-chart crossplane
+```
+
 ## Deploy RDS Database 
 
 Run the following code:
