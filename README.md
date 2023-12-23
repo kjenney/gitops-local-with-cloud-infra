@@ -56,7 +56,7 @@ argocd app sync crossplane-aws-provider
 Run the following code:
 
 ```
-argocd app create rds-database --repo https://github.com/kjenney/gitops-local-with-cloud-infra --path rds-database --dest-server https://kubernetes.default.svc
+argocd app create rds-database --repo https://github.com/kjenney/gitops-local-with-cloud-infra --path charts/rds-database --dest-server https://kubernetes.default.svc
 argocd app sync rds-database 
 ```
 
