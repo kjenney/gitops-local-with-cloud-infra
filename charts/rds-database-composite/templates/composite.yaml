@@ -1,0 +1,159 @@
+kind: Composition
+apiVersion: apiextensions.crossplane.io/v1
+metadata:
+  name: vpcpostgresqlinstances.aws.database.example.org
+  creationTimestamp: null
+  labels:
+    guide: quickstart
+    provider: aws
+    vpc: new
+spec:
+  compositeTypeRef:
+    apiVersion: database.example.org/v1alpha1
+    kind: XPostgreSQLInstance
+  resources:
+    - name: vpc
+      base:
+        apiVersion: ec2.aws.crossplane.io/v1beta1
+        kind: VPC
+        spec:
+          forProvider:
+            cidrBlock: 192.168.0.0/16
+            enableDnsHostNames: true
+            enableDnsSupport: true
+            region: us-east-1
+    - name: subnet-a
+      base:
+        apiVersion: ec2.aws.crossplane.io/v1beta1
+        kind: Subnet
+        metadata:
+          labels:
+            zone: us-east-1a
+        spec:
+          forProvider:
+            availabilityZone: us-east-1a
+            cidrBlock: 192.168.64.0/18
+            region: us-east-1
+            vpcIdSelector:
+              matchControllerRef: true
+    - name: subnet-b
+      base:
+        apiVersion: ec2.aws.crossplane.io/v1beta1
+        kind: Subnet
+        metadata:
+          labels:
+            zone: us-east-1b
+        spec:
+          forProvider:
+            availabilityZone: us-east-1b
+            cidrBlock: 192.168.128.0/18
+            region: us-east-1
+            vpcIdSelector:
+              matchControllerRef: true
+    - name: subnet-c
+      base:
+        apiVersion: ec2.aws.crossplane.io/v1beta1
+        kind: Subnet
+        metadata:
+          labels:
+            zone: us-east-1c
+        spec:
+          forProvider:
+            availabilityZone: us-east-1c
+            cidrBlock: 192.168.192.0/18
+            region: us-east-1
+            vpcIdSelector:
+              matchControllerRef: true
+    - name: dbsubnetgroup
+      base:
+        apiVersion: database.aws.crossplane.io/v1beta1
+        kind: DBSubnetGroup
+        spec:
+          forProvider:
+            description: An excellent formation of subnetworks.
+            region: us-east-1
+            subnetIdSelector:
+              matchControllerRef: true
+    - name: internetgateway
+      base:
+        apiVersion: ec2.aws.crossplane.io/v1beta1
+        kind: InternetGateway
+        spec:
+          forProvider:
+            region: us-east-1
+            vpcIdSelector:
+              matchControllerRef: true
+    - name: routetable
+      base:
+        apiVersion: ec2.aws.crossplane.io/v1beta1
+        kind: RouteTable
+        spec:
+          forProvider:
+            associations:
+              - subnetIdSelector:
+                  matchLabels:
+                    zone: us-east-1a
+              - subnetIdSelector:
+                  matchLabels:
+                    zone: us-east-1b
+              - subnetIdSelector:
+                  matchLabels:
+                    zone: us-east-1c
+            region: us-east-1
+            routes:
+              - destinationCidrBlock: 0.0.0.0/0
+                gatewayIdSelector:
+                  matchControllerRef: true
+            vpcIdSelector:
+              matchControllerRef: true
+    - name: securitygroup
+      base:
+        apiVersion: ec2.aws.crossplane.io/v1beta1
+        kind: SecurityGroup
+        spec:
+          forProvider:
+            description: Allow access to PostgreSQL
+            groupName: crossplane-getting-started
+            ingress:
+              - fromPort: 5432
+                ipProtocol: tcp
+                ipRanges:
+                  - cidrIp: 0.0.0.0/0
+                    description: Everywhere
+                toPort: 5432
+            region: us-east-1
+            vpcIdSelector:
+              matchControllerRef: true
+    - name: rdsinstance
+      base:
+        apiVersion: database.aws.crossplane.io/v1beta1
+        kind: RDSInstance
+        spec:
+          forProvider:
+            dbInstanceClass: db.t2.small
+            dbSubnetGroupNameSelector:
+              matchControllerRef: true
+            engine: postgres
+            engineVersion: "12"
+            masterUsername: masteruser
+            publiclyAccessible: true
+            region: us-east-1
+            skipFinalSnapshotBeforeDeletion: true
+            vpcSecurityGroupIDSelector:
+              matchControllerRef: true
+          writeConnectionSecretToRef:
+            namespace: {{ .Values.namespace }} 
+        - fromFieldPath: metadata.uid
+          toFieldPath: spec.writeConnectionSecretToRef.name
+          transforms:
+            - type: string
+              string:
+                fmt: "%s-postgresql"
+        - fromFieldPath: spec.parameters.storageGB
+          toFieldPath: spec.forProvider.allocatedStorage
+      connectionDetails:
+        - fromConnectionSecretKey: username
+        - fromConnectionSecretKey: password
+        - fromConnectionSecretKey: endpoint
+        - fromConnectionSecretKey: port
+  writeConnectionSecretsToNamespace: {{ .Values.namespace }} 

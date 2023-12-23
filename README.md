@@ -24,7 +24,7 @@ Run the following commands:
 3. Deploy Crossplane using Argo CD [here](#Deploy-CrossPlane-using-Argo-CD).
 4. Deploy Kubernetes Secret with AWS Credentials [here](#Create-Kubernetes-Secret-for-AWS-Providers).
 5. Deploy Crossplane's AWS Providers with Argo CD [here](#Deploy-Crossplane-AWS-Providers-using-Argo-CD).
-6. Deploy RDS Database using Crossplane AWS Provider with Argo CD [here](#Deploy-RDS-Database).
+6. Deploy Crossplane RDS Database Composite with Argo CD [here](#Deploy-RDS-Database-Composite).
 
 ## Deploy CrossPlane using Argo CD
 
@@ -51,12 +51,12 @@ argocd app create crossplane-aws-provider --repo https://github.com/kjenney/gito
 argocd app sync crossplane-aws-provider
 ```
 
-## Deploy RDS Database 
+## Deploy RDS Database Composite
 
 Run the following code:
 
 ```
-argocd app create rds-database --repo https://github.com/kjenney/gitops-local-with-cloud-infra --path charts/rds-database --dest-server https://kubernetes.default.svc
+argocd app create rds-database --repo https://github.com/kjenney/gitops-local-with-cloud-infra --path charts/rds-database-composite --dest-server https://kubernetes.default.svc
 argocd app sync rds-database 
 ```
 
