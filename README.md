@@ -20,7 +20,9 @@ Local K8S that provisions infrastructure on a cloud provider
 Run the following commands:
 
 1. `kubectx rancher-desktop`
-2. Install ArgoCD. Use [Getting Started](https://argo-cd.readthedocs.io/en/stable/getting_started/). 
+2. Install ArgoCD. Use [Getting Started](https://argo-cd.readthedocs.io/en/stable/getting_started/).
+3. Login to ArgoCD UI.
+4. 
 
 
 ## Rancher Desktop Troubleshooting
