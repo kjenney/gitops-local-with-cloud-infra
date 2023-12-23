@@ -1,0 +1,4 @@
+apiVersion: database.example.org/v1alpha1
+kind: XPostgreSQLInstance
+metadata:
+  name: my-claimed-database

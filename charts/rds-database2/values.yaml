@@ -1,3 +1,0 @@
-providerVersion: v0.46.1
-namespace: crossplane
-secretName: rds-master-password

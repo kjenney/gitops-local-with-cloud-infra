@@ -25,6 +25,7 @@ Run the following commands:
 4. Deploy Kubernetes Secret with AWS Credentials [here](#Create-Kubernetes-Secret-for-AWS-Providers).
 5. Deploy Crossplane's AWS Providers with Argo CD [here](#Deploy-Crossplane-AWS-Providers-using-Argo-CD).
 6. Deploy Crossplane RDS Database Composite with Argo CD [here](#Deploy-RDS-Database-Composite).
+7. Deploy RDS Database using the Composite with Argo CD [here](#Deploy-RDS-Database).
 
 ## Deploy CrossPlane using Argo CD
 
@@ -59,6 +60,16 @@ Run the following code:
 argocd app create rds-database-composite --repo https://github.com/kjenney/gitops-local-with-cloud-infra --path charts/rds-database-composite --dest-server https://kubernetes.default.svc
 argocd app sync rds-database-composite
 ```
+
+## Deploy RDS Database
+
+Run the following code:
+
+```
+argocd app create rds-database --repo https://github.com/kjenney/gitops-local-with-cloud-infra --path charts/rds-database --dest-server https://kubernetes.default.svc
+argocd app sync rds-database
+```
+
 
 ## Rancher Desktop Troubleshooting
 
