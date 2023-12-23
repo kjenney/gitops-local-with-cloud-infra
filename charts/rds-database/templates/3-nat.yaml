@@ -22,6 +22,6 @@ spec:
       name: {{ .Values.environment }}-nat
     subnetIdSelector:
       matchLabels:
-        name: {{ .Values.environment }}-public-{{ .Values.aws_region }} a
+        name: {{ .Values.environment }}-public-{{ .Values.aws_region }}a
     tags:
       Name: {{ .Values.environment }}-nat

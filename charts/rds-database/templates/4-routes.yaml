@@ -52,47 +52,47 @@ spec:
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTableAssociation
 metadata:
-  name: dev-private-{{ .Values.aws_region }} a
+  name: dev-private-{{ .Values.aws_region }}a
 spec:
   forProvider:
     region: {{ .Values.aws_region }} 
     routeTableIdRef:
       name: dev-private
     subnetIdRef:
-      name: dev-private-{{ .Values.aws_region }} a
+      name: dev-private-{{ .Values.aws_region }}a
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTableAssociation
 metadata:
-  name: dev-private-{{ .Values.aws_region }} b
+  name: dev-private-{{ .Values.aws_region }}b
 spec:
   forProvider:
     region: {{ .Values.aws_region }} 
     routeTableIdRef:
       name: dev-private
     subnetIdRef:
-      name: dev-private-{{ .Values.aws_region }} b
+      name: dev-private-{{ .Values.aws_region }}b
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTableAssociation
 metadata:
-  name: dev-public-{{ .Values.aws_region }} a
+  name: dev-public-{{ .Values.aws_region }}a
 spec:
   forProvider:
     region: {{ .Values.aws_region }} 
     routeTableIdRef:
       name: dev-public
     subnetIdRef:
-      name: dev-public-{{ .Values.aws_region }} a
+      name: dev-public-{{ .Values.aws_region }}a
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTableAssociation
 metadata:
-  name: dev-public-{{ .Values.aws_region }} b
+  name: dev-public-{{ .Values.aws_region }}b
 spec:
   forProvider:
     region: {{ .Values.aws_region }} 
     routeTableIdRef:
       name: dev-public
     subnetIdRef:
-      name: dev-public-{{ .Values.aws_region }} b
+      name: dev-public-{{ .Values.aws_region }}b
