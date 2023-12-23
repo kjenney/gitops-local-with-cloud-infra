@@ -21,3 +21,12 @@ Run the following commands:
 
 1. `kubectx rancher-desktop`
 2. 
+
+
+## Rancher Desktop Troubleshooting
+
+If you have issues with Rancher Desktop try the following:
+
+1. Run `rdctl factory-reset`
+2. Relaunch Rancher Desktop from your desktop
+3. Ensure you are on the latest version - upgrade if necessary
