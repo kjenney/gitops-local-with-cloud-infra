@@ -31,7 +31,7 @@ If you have issues with Rancher Desktop try the following:
 2. Relaunch Rancher Desktop from your desktop
 3. Ensure you are on the latest version - upgrade if necessary
 
-<a name="crossplane">## Install CrossPlane with Argo CD</a>
+[crossplane](## Install CrossPlane with Argo CD)
 
 Run the following code:
 
