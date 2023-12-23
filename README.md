@@ -42,6 +42,11 @@ If you have issues with Rancher Desktop try the following:
         <li>Minikube wouldn't work with my version of Virtualbox and it was too difficult to downgrade on a Mac</li>
         <li>Useful because it bundles dependencies, such as kubectl </li>
       </ul>
+      <li>AWS Cloud</li>
+      <ul>
+        <li>It's well-known</li>
+        <li>I know it very well</li>
+      </ul>
       <li>Crossplane</li>
       <ul>
         <li>It's CNCF and well-known</li>
