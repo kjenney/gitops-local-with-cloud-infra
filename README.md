@@ -50,6 +50,5 @@ If you have issues with Rancher Desktop try the following:
       <li>Argo CD</li>
       <ul>
         <li>It's CNCF and well-known</li>
-      </ul>  
+      </ul>
 </ol>
-
