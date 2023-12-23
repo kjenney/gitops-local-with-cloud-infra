@@ -30,3 +30,9 @@ If you have issues with Rancher Desktop try the following:
 1. Run `rdctl factory-reset`
 2. Relaunch Rancher Desktop from your desktop
 3. Ensure you are on the latest version - upgrade if necessary
+
+
+## Decisions
+
+1. Rancher Desktop - because Minikube wouldn't work with my version of Virtualbox and it was too difficult to downgrade on a Mac
+
