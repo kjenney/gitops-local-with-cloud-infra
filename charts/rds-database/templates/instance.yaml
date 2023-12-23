@@ -15,9 +15,9 @@ spec:
     instanceClass: db.t3.micro
     parameterGroupName: default.mysql5.7
     passwordSecretRef:
-      name: rds-master-password
+      name: {{ .Values.secretName }}
       key: password
-      namespace: crossplane
+      namespace: {{ .Values.namespace }} 
     region: us-east-1
     skipFinalSnapshot: true
     username: foo
