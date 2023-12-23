@@ -2,12 +2,12 @@
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: Subnet
 metadata:
-  name: {{ .Values.environment }}-private-{{ .Values.aws_region }}
+  name: {{ .Values.environment }}-private-{{ .Values.aws_region }}a
   labels:
-    name: {{ .Values.environment }}-private-{{ .Values.aws_region }}
+    name: {{ .Values.environment }}-private-{{ .Values.aws_region }}a
 spec:
   forProvider:
-    availabilityZone: {{ .Values.aws_region }} a
+    availabilityZone: {{ .Values.aws_region }}a
     cidrBlock: 10.0.0.0/19
     region: {{ .Values.aws_region }} 
     tags:
