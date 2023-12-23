@@ -21,7 +21,7 @@ Run the following commands:
 
 1. `kubectx rancher-desktop`
 2. Install Argo CD. Use [Getting Started](https://argo-cd.readthedocs.io/en/stable/getting_started/).
-3. Deploy Crossplane using Argo CD [here](#Install-CrossPlane-with-Argo-CD)
+3. Deploy Crossplane using Argo CD [here](#Deploy-CrossPlane-using-Argo-CD)
 
 ## Rancher Desktop Troubleshooting
 
@@ -31,7 +31,7 @@ If you have issues with Rancher Desktop try the following:
 2. Relaunch Rancher Desktop from your desktop
 3. Ensure you are on the latest version - upgrade if necessary
 
-## Install CrossPlane with Argo CD
+## Deploy CrossPlane using Argo CD
 
 Run the following code:
 
