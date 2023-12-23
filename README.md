@@ -21,9 +21,10 @@ Run the following commands:
 
 1. `kubectx rancher-desktop`
 2. Install Argo CD. Use [Getting Started](https://argo-cd.readthedocs.io/en/stable/getting_started/).
-3. Deploy Crossplane using Argo CD [here](#Deploy-CrossPlane-using-Argo-CD)
-4. Deploy Crossplane's AWS Provider with Argo CD. Use [AWS Quickstart](https://docs.crossplane.io/latest/getting-started/provider-aws/)
-5. Deploy RDS Database using Crossplane AWS Provider with Argo CD [here](#Deploy-RDS-Database)
+3. Deploy Crossplane using Argo CD [here](#Deploy-CrossPlane-using-Argo-CD).
+4. Deploy Crossplane's AWS Provider with Argo CD [here](#Deploy-Crossplane-AWS-Provider-using-Argo-CD).
+5. Deploy Kubernetes Secret with AWS Credentials. Use [AWS Quickstart[(https://docs.crossplane.io/latest/getting-started/provider-aws/#create-a-kubernetes-secret-for-aws).
+6. Deploy RDS Database using Crossplane AWS Provider with Argo CD [here](#Deploy-RDS-Database).
 
 ## Deploy CrossPlane using Argo CD
 
