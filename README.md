@@ -66,6 +66,7 @@ argocd app sync rds-database
 Run the following code:
 
 ```
+kubectl create ns smart-search
 argocd app create smart-search --repo https://github.com/kjenney/gitops-local-with-cloud-infra --path charts/smart-search --dest-server https://kubernetes.default.svc
 argocd app sync smart-search
 ```
