@@ -61,7 +61,7 @@ argocd app create  --repo https://github.com/kjenney/gitops-local-with-cloud-inf
 argocd app sync infra-tester
 ```
 
-Wait for `example-dbinstance-out` secret to populate connection info before continuing. You'll see  a value under `data` for the secret. `kubernetes get secret -n smart-search example-dbinstance-out`
+Wait for `example-dbinstance-out` secret to populate connection info before continuing. You'll see  a value under `DATA` for the secret. `kubernetes get secret -n smart-search example-dbinstance-out`
 
 ## Test Infra
 
