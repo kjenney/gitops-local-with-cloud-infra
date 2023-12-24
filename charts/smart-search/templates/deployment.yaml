@@ -40,6 +40,8 @@ spec:
           # taken from rds-database helm chart
           MYSQL_HOSTNAME from secret: example-dbinstance-out
           env:
+          - name: RAILS_DB
+            value: testermytestdatabase
           - name: MYSQL_ROOT_PASSWORD
             valueFrom:
               secretKeyRef:
@@ -49,7 +51,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: example-dbinstance-out
-                key: RDS_ENDPOINT_URL
+                key: address
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
