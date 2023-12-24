@@ -1,0 +1,28 @@
+apiVersion: lambda.aws.upbound.io/v1beta1
+kind: Function
+metadata:
+  annotations:
+    meta.upbound.io/example-id: lambda/v1beta1/function
+    uptest.upbound.io/timeout: "3600"
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    handler: index.py
+    packageType: Zip
+    region: us-east-1
+    roleSelector:
+      matchLabels:
+        testing.upbound.io/example-name: role
+    runtime: python3.9
+    s3Bucket: upbound-provider-test-data
+    s3Key: hello-python.zip
+    timeout: 60
+    vpcConfig:
+      - securityGroupIdSelector:
+          matchLabels:
+            testing.upbound.io/example-name: example
+        subnetIdSelector:
+          matchLabels:
+            testing.upbound.io/example-name: example
