@@ -13,7 +13,7 @@ Local K8S that provisions infrastructure on a cloud provider
 
 * [Rancher Desktop](https://rancherdesktop.io/) already installed
 * [kubectx](https://github.com/ahmetb/kubectx) already installed
-* AWS credentials for Cloud Infra saved in `/tmp/credentails`
+* AWS credentials for Cloud Infra saved in `/tmp/credentials`
 
 ## Quickstart
 
