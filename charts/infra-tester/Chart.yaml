@@ -1,6 +1,6 @@
 apiVersion: v2
-name: rds-database
-description: An RDS Instance created by Crossplane AWS Provider
+name: infra-tester
+description: Deploys a set of Infrastructure with the Crossplane AWS Provider
 
 # A chart can be either an 'application' or a 'library' chart.
 #

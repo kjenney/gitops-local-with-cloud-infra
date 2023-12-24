@@ -24,9 +24,8 @@ Run the following commands:
 3. Deploy Crossplane using Argo CD [here](#Deploy-CrossPlane-using-Argo-CD).
 4. Deploy Kubernetes Secret with AWS Credentials [here](#Create-Kubernetes-Secret-for-AWS-Providers).
 5. Deploy Crossplane's AWS Providers with Argo CD [here](#Deploy-Crossplane-AWS-Providers-using-Argo-CD).
-6. Deploy Crossplane RDS Database Composite with Argo CD [here](#Deploy-RDS-Database-Composite).
-7. Deploy RDS Database using Argo CD [here](#Deploy-RDS-Database).
-8. Deploy Service using Argo CD [here](#Deploy-Service).
+7. Deploy Infra using Argo CD [here](#Deploy-Infra).
+8. Test Infra using Argo CD [here](#Test-Infra).
 
 ## Deploy CrossPlane using Argo CD
 
@@ -53,27 +52,20 @@ argocd app create crossplane-aws-provider --repo https://github.com/kjenney/gito
 argocd app sync crossplane-aws-provider
 ```
 
-## Deploy RDS Database
+## Deploy Infra
 
 Run the following code:
 
 ```
-argocd app create rds-database --repo https://github.com/kjenney/gitops-local-with-cloud-infra --path charts/rds-database --dest-server https://kubernetes.default.svc
-argocd app sync rds-database
+argocd app create  --repo https://github.com/kjenney/gitops-local-with-cloud-infra --path charts/infra-tester --dest-server https://kubernetes.default.svc
+argocd app sync infra-tester
 ```
 
 Wait for `example-dbinstance-out` secret to populate connection info before continuing. You'll see  a value under `data` for the secret. `kubernetes get secret -n smart-search example-dbinstance-out`
 
-## Deploy Service
+## Test Infra
 
-Run the following code:
-
-```
-kubectl create ns smart-search
-argocd app create smart-search --repo https://github.com/kjenney/gitops-local-with-cloud-infra --path charts/smart-search --dest-server https://kubernetes.default.svc
-argocd app sync smart-search
-```
-
+TODO
 
 ## Rancher Desktop Troubleshooting
 
