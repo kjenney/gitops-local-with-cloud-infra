@@ -40,7 +40,7 @@ argocd app sync crossplane
 
 ## Create Kubernetes Secret for AWS Providers
 
-Use [AWS Quickstart][(https://docs.crossplane.io/latest/getting-started/provider-aws/#create-a-kubernetes-secret-for-aws). Update the namespace to use `crossplane` like so:
+Use [AWS Quickstart](https://docs.crossplane.io/latest/getting-started/provider-aws/#create-a-kubernetes-secret-for-aws). Update the namespace to use `crossplane` like so:
 
 ```
 kubectl create secret generic aws-secret -n crossplane --from-file=creds=/tmp/credentials
