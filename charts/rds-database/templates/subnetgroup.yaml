@@ -5,12 +5,12 @@ metadata:
     meta.upbound.io/example-id: rds/v1beta1/subnetgroup
   labels:
     testing.upbound.io/example-name: default
-  name: example-subnetgroup
+  name: {{ .Values.environment }}-example-subnetgroup
 spec:
   forProvider:
     region: {{ .Values.aws_region }} 
     subnetIdRefs:
-      - name: {{ .Values.environment }}-private-{{ .Values.aws_region }}a
-      - name: {{ .Values.environment }}-private-{{ .Values.aws_region }}b
+      - name: {{ .Values.environment }}-public-{{ .Values.aws_region }}a
+      - name: {{ .Values.environment }}-public-{{ .Values.aws_region }}b
     tags:
-      Name: My DB subnet group
+      Name: My Public DB subnet group

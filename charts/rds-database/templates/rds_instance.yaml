@@ -20,7 +20,7 @@ spec:
     applyImmediately: true
     publiclyAccessible: true
     dbSubnetGroupNameRef:
-      name: example-subnetgroup
+      name: {{ .Values.environment }}-example-subnetgroup
     vpcSecurityGroupIdRefs:
       - name: {{ .Values.environment }}-sample-rds-sg
     maintenanceWindow: Mon:00:00-Mon:03:00
