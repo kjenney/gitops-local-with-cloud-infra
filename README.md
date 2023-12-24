@@ -26,6 +26,7 @@ Run the following commands:
 5. Deploy Crossplane's AWS Providers with Argo CD [here](#Deploy-Crossplane-AWS-Providers-using-Argo-CD).
 6. Deploy Crossplane RDS Database Composite with Argo CD [here](#Deploy-RDS-Database-Composite).
 7. Deploy RDS Database using Argo CD [here](#Deploy-RDS-Database).
+8. Deploy Service using Argo CD [here](#Deploy-Service).
 
 ## Deploy CrossPlane using Argo CD
 
