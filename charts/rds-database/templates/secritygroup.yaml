@@ -22,7 +22,7 @@ spec:
   forProvider:
     fromPort: 3306
     toPort: 3306
-    cidrIpv4: {{ .Values.vpc_cidr }} 
+    cidrIpv4: {{ .Values.my_ip }} 
     ipProtocol: tcp
     region: {{ .Values.aws_region }} 
     securityGroupIdRef:
