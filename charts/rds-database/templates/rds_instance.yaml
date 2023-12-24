@@ -14,8 +14,8 @@ spec:
     autoMinorVersionUpgrade: true
     backupRetentionPeriod: 14
     backupWindow: 09:46-10:16
-    engine: postgres
-    engineVersion: "13.7"
+    engine: mysql
+    engineVersion: "5.7"
     instanceClass: db.t3.large
     dbSubnetGroupNameRef:
       name: example-subnetgroup

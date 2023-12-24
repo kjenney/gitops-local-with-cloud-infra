@@ -61,6 +61,15 @@ argocd app create rds-database --repo https://github.com/kjenney/gitops-local-wi
 argocd app sync rds-database
 ```
 
+## Deploy Service
+
+Run the following code:
+
+```
+argocd app create smart-search --repo https://github.com/kjenney/gitops-local-with-cloud-infra --path charts/smart-search --dest-server https://kubernetes.default.svc
+argocd app sync smart-search
+```
+
 
 ## Rancher Desktop Troubleshooting
 
