@@ -22,7 +22,7 @@ spec:
   forProvider:
     fromPort: 5432
     toPort: 5432
-    cidrIpv4: 0.0.0.0/0
+    cidrIpv4: {{ .Values.vpc_cidr }} 
     ipProtocol: tcp
     region: {{ .Values.aws_region }} 
     securityGroupIdRef:
