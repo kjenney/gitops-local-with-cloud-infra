@@ -67,7 +67,19 @@ Wait for `example-dbinstance-out` secret to populate connection info before cont
 
 TODO
 
-## Rancher Desktop Troubleshooting
+## Cleaning Up
+
+Run the following code:
+
+```
+argocd app delete infra-tester
+argocd app delete crossplane-aws-provider
+argocd app delete crossplane
+```
+
+## Troubleshooting
+
+### Rancher Desktop Troubleshooting
 
 If you have issues with Rancher Desktop try the following:
 
@@ -75,7 +87,7 @@ If you have issues with Rancher Desktop try the following:
 2. Relaunch Rancher Desktop from your desktop
 3. Ensure you are on the latest version - upgrade if necessary
 
-## CrossPlane Troubleshooting
+### CrossPlane Troubleshooting
 
 To get the latest versions of Crossplane packages, go [here](https://marketplace.upbound.io/providers/upbound/provider-family-aws)
 
